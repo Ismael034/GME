@@ -251,7 +251,7 @@ def _regress_ppml(data_frame, specification, fe_columns, drop_fixed_effect, clus
 
     total_fe_drop=user_fe+collinear_fe
     for col in total_fe_drop:
-        adjusted_data_frame.drop(col, 1, inplace=True)
+        adjusted_data_frame.drop(col, axis=1, inplace=True)
 #
 #    if len(collinear_column_list) == 0:
 #        collinearity_indicator = 'No'
@@ -265,8 +265,8 @@ def _regress_ppml(data_frame, specification, fe_columns, drop_fixed_effect, clus
     # GLM Estimation
     if cluster is False:
         try:
-            estimates = sm.GLM(endog=adjusted_data_frame[specification.lhs_var],
-                           exog=non_collinear_rhs,
+            estimates = sm.GLM(endog=adjusted_data_frame[specification.lhs_var].astype(float),
+                           exog=non_collinear_rhs.astype(float),
                            family=sm.families.Poisson()
                            ).fit(cov_type=specification.std_errors,
                                  maxiter=specification.iteration_limit)
@@ -303,7 +303,7 @@ def _regress_ppml(data_frame, specification, fe_columns, drop_fixed_effect, clus
 
 
     # Collect diagnostics
-    diagnostics = overfit_column.append(exclusion_column)
+    diagnostics = pd.concat([overfit_column, exclusion_column])
     #diagnostics = diagnostics.append(exclusion_column)
     diagnostics.at['Regressors with Zero Trade'] =  problem_variable_list
     diagnostics.at['Regressors from User'] = user_fe
