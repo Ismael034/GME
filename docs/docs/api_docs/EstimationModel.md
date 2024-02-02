@@ -107,7 +107,7 @@ The class used to specify and run an gravity estimation.  A gme.EstimationData m
 <dd><p>  If True, the estimation DataFrames for each sector after they have been (potentially) modified during the pre-diagnostics for collinearity and convergence issues. Default is False. WARNING: these object sizes can be very large in memory so use with caution.  </p></dd>
 
 <dt><strong>full_results</strong>: <em>bool</em> </dt>
- <dd><p> If True, estimate() returns the full results object from the GLM estimation.  These results can be quite large as each estimated sector's results will contain a full copy of the data used for its estimation, vectors of predicted values, and other memory intensive pieces of data. If False, estimate() returns a smaller subset of the results that are likely most useful (e.g. .params, .nobs, .bse, .pvalues, .aic, .bic). For a list of these attributes, see the documentation for the function [SlimResults](SlimResults). </p></dd>
+ <dd><p> If True, estimate() returns the full results object from the GLM estimation.  These results can be quite large as each estimated sector's results will contain a full copy of the data used for its estimation, vectors of predicted values, and other memory intensive pieces of data. If False, estimate() returns a smaller subset of the results that are likely most useful (e.g. .params, .nobs, .bse, .pvalues, .aic, .bic_llf). For a list of these attributes, see the documentation for the function [SlimResults](SlimResults). </p></dd>
  
 <dt><strong>cluster_on</strong>: <em>(optional) str</em></dt>
  <dd><p> The name of a column of categorical variables to use as clusters for clustered standard errors.</p></dd>

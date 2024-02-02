@@ -115,7 +115,7 @@ class EstimationModel(object):
                 large as each estimated sector's results will contain a full copy of the data used for its estimation,
                 vectors of predicted values, and other memory intensive pieces of data.  If False, estimate() returns
                 a smaller subset of the results that are likely most useful (e.g. .params, .nobs, .bse, .pvalues, .aic,
-                .bic).  For a list of these attributes, see the documentation for the function SlimResults
+                .bic_llf).  For a list of these attributes, see the documentation for the function SlimResults
             cluster_on: (optional) str
                 The name of a column of categorical variables to use as clusters for clustered standard errors.
 

@@ -16,7 +16,7 @@ The SlimResults object retains only the attributes listed below. For additional 
 **aic**: *float* <br>
  &emsp; Akaike Information Criterion 
 
-**bic**: *float* <br>
+**bic_llf**: *float* <br>
  &emsp; Bayes Information Criterion 
 
 **llf**: *float* <br>

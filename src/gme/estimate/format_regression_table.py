@@ -154,18 +154,18 @@ def format_regression_table(results_dict: dict = None,
         try:
             num_obs = str(int(results.nobs))
             aic = str(round(results.aic, round_values))
-            bic = str(round(results.bic, round_values))
+            bic_llf = str(round(results.bic_llf, round_values))
             llf = str(round(results.llf, round_values))
         except:
             num_obs = 'Not reported for model type'
             aic = num_obs
-            bic = num_obs
+            bic_llf = num_obs
             llf = num_obs
         if se_below is False:
             row = pd.DataFrame({'Variable': ['Obs.', 'AIC', 'BIC', 'Likelihood'],
                                 str(key): [num_obs,
                                            aic,
-                                           bic,
+                                           bic_llf,
                                            llf],
                                 (str(key) + ' SE'): ['', '', '', '']},
                                index=['b_nobs', 'b_aic', 'b_bic', 'b_llf'])
@@ -180,7 +180,7 @@ def format_regression_table(results_dict: dict = None,
             row = pd.DataFrame({'Variable': ['Obs.', 'AIC', 'BIC', 'Likelihood'],
                                 str(key): [num_obs,
                                            aic,
-                                           bic,
+                                           bic_llf,
                                            llf]},
                                index=['b_nobs', 'b_aic', 'b_bic', 'b_llf'])
             if r_squared is True:

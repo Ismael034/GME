@@ -30,7 +30,7 @@ class SlimResults(object):
                 Estimated parameter values
             aic: float
                 Akaike Information Criterion
-            bic: float
+            bic_llf: float
                 Bayes Information Criterion
             llf: float
                 Value of log-likelihood function
@@ -82,7 +82,7 @@ class SlimResults(object):
         '''
         self.params = glm_results.params
         self.aic = glm_results.aic
-        self.bic = glm_results.bic
+        self.bic_llf = glm_results.bic_llf
         self.llf = glm_results.llf
         self.nobs = glm_results.nobs
         self.bse = glm_results.bse
