@@ -217,7 +217,7 @@ def format_regression_table(results_dict: dict = None,
             column_spec = '{' + results_table.shape[1] * 'l' + '}'
             begin_tab = '\\begin{tabular}' + column_spec
             end_tab = '\\end{tabular}'
-            results_table.to_csv(path, index=include_index, sep='&', line_terminator='\\\\\n')
+            results_table.to_csv(path, index=include_index, sep='&', lineterminator='\\\\\n')
             with open(path, 'r+') as file:
                 content = file.read()
                 content = content.replace('_', '\\_')
@@ -231,7 +231,7 @@ def format_regression_table(results_dict: dict = None,
                 file.write(results_table.to_string(index=include_index, justify='left'))
 
         if format == 'csv':
-            results_table.to_csv(path, index=include_index, sep=',', line_terminator='\n')
+            results_table.to_csv(path, index=include_index, sep=',', lineterminator='\n')
 
         # Add note
         footnote = '*** p < {}, ** p < {}, * p < {}. '.format(significance_levels[0], significance_levels[1],
